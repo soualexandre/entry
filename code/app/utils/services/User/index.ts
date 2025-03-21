@@ -18,6 +18,15 @@ class UserService {
             throw new Error(error.response?.data?.message || 'Erro ao registrar usuário');
         }
     }
+
+    static async getTicketsUser(userId: string) {
+        try {
+            const response = await api.get(`/user/${userId}`);
+            return response.data;
+        } catch (error: any) {
+            throw new Error(error.response?.data?.message || 'Erro ao registrar usuário');
+        }
+    }
 }
 
 export default UserService;

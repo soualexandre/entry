@@ -3,7 +3,7 @@ import axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 
 const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3036';
 const PUBLIC_ROUTES = ['/auth/login', '/auth/register'];
 
-const getAuthToken = (): string | null => {
+export const getAuthToken = (): string | null => {
     if (typeof window !== 'undefined') {
         return localStorage.getItem('token');
     }

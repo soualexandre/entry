@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/app/utils/user/user";
+import { cn } from "../../../../utils/user/user";
 import * as React from "react";
 
 interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> { }

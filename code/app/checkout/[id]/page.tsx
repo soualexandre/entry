@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import EventService from '../../utils/services/Events';
-import TicketService from '@/app/utils/services/Ticket';
-import { showToast, TOAST_TYPES } from '@/app/utils/toast/toast';
-import UserService from '@/app/utils/services/User';
+import TicketService from '../../utils/services/Ticket';
+import { showToast, TOAST_TYPES } from '../../utils/toast/toast';
+import UserService from '../../utils/services/User';
 import { QRCodeCanvas } from "qrcode.react";
 const CheckoutPage = () => {
     const [step, setStep] = useState(1);
@@ -32,11 +32,11 @@ const CheckoutPage = () => {
         const getUniqueEvent = async () => {
             try {
                 const response = await EventService.getById(id);
-                if (response.data) {
-                    setEvent(response.data);
-                    if (response.data.batches?.length > 0) {
-                        setPrice(response.data.batches[0].price);
-                        setBatchId(response.data.batches[0].id);
+                if (response) {
+                    setEvent(response);
+                    if (response.batches?.length > 0) {
+                        setPrice(response.batches[0].price);
+                        setBatchId(response.batches[0].id);
                     }
                 } else {
                     console.error("Erro ao buscar evento");

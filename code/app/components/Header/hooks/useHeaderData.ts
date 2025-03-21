@@ -1,6 +1,7 @@
+"use client"
 import { useEffect } from "react";
-import { useHeaderStore } from "@/app/hooks/Header";
-import { useAuth } from "@/app/hooks/Auth/isLogged";
+import { useHeaderStore } from "../../../hooks/Header";
+import { useAuth } from "../../../hooks/Auth/isLogged";
 
 const useHeaderData = () => {
     const { isLoggedIn } = useAuth();
